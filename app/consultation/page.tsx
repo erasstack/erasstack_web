@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useSendEmail } from "@/hooks/use-send-email";
+import { useSendEmailConsultation } from "@/hooks/use-send-email-consultation";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { addDays, format, isWeekend } from "date-fns";
@@ -51,7 +51,7 @@ const projectTypes = [
 ];
 
 const Consultation = () => {
-  const sendEmail = useSendEmail();
+  const sendEmail = useSendEmailConsultation();
   const [date, setDate] = useState<Date | undefined>();
   const [time, setTime] = useState<string>("");
   const [formData, setFormData] = useState({

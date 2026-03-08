@@ -1,8 +1,10 @@
+"use client";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useSendEmailContact} from "@/hooks/use-send-email-contact";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
@@ -12,15 +14,15 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "contact@ErasStack.global",
-    href: "mailto:contact@ErasStack.global",
+    value: "contact@erasstack.com",
+    href: "mailto:contact@erasstack.com",
     description: "For general inquiries and correspondence",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 012-3456",
-    href: "tel:+1-555-012-3456",
+    value: "+234 703 806 3828",
+    href: "tel:+234708063828",
     description: "Monday to Friday, 9:00 AM - 6:00 PM EST",
   },
   {
@@ -38,6 +40,8 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const sendEmail = useSendEmailContact();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,7 +51,7 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     toast({
@@ -55,13 +59,30 @@ const Contact = () => {
       description:
         "Thank you for reaching out. We'll respond within 24 business hours.",
     });
+    sendEmail.mutate(formData, {
+      onSuccess: () => {
+        toast({
+          title: "Contact Form Submitted",
+          description: `Thank you, ${formData.name}. We'll reach back to you shortly shortly.`,
+        });
 
-    setFormData({
-      name: "",
-      email: "",
-      organization: "",
-      subject: "",
-      message: "",
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          organization: "",
+          subject: "",
+          message: "",
+        });
+      },
+      onError: () => {
+        toast({
+          title: "Submission Failed",
+          description:
+            "Something went wrong while sending your request. Please try again.",
+          variant: "destructive",
+        });
+      },
     });
   };
 
@@ -88,8 +109,8 @@ const Contact = () => {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Whether you have a question, need information, or want to discuss
-              a potential project, we&apos;re here to help. Reach out and we&apos;ll
-              respond promptly.
+              a potential project, we&apos;re here to help. Reach out and
+              we&apos;ll respond promptly.
             </p>
           </div>
         </div>
