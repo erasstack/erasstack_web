@@ -302,9 +302,11 @@ const Consultation = () => {
                             selected={date}
                             onSelect={setDate}
                             disabled={disabledDays}
-                            initialFocus
-                            fromDate={addDays(new Date(), 1)}
-                            toDate={addDays(new Date(), 60)}
+                            hidden={{
+                              before: addDays(new Date(), 1),
+                              after: addDays(new Date(), 60),
+                            }}
+                            autoFocus
                           />
                         </PopoverContent>
                       </Popover>
