@@ -1,9 +1,15 @@
+"use client";
+
 import logo from "@/assets/logoh.png";
+import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
@@ -14,14 +20,21 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="container-enterprise flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="erasstack logo" className="w-24" />
+
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src={logo}
+            alt="erasstack logo"
+            width={96}
+            height={24}
+            className="w-24"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -29,10 +42,10 @@ export function Header() {
           {navigation.map((item) => (
             <Link
               key={item.name}
-              to={item.href}
+              href={item.href}
               className={cn(
                 "text-sm font-medium transition-colors link-underline",
-                location.pathname === item.href
+                pathname === item.href
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground",
               )}
@@ -45,7 +58,7 @@ export function Header() {
         {/* CTA Button */}
         <div className="hidden lg:block">
           <Button variant="enterprise" size="lg" asChild>
-            <Link to="/consultation">Schedule Consultation</Link>
+            <Link href="/consultation">Schedule Consultation</Link>
           </Button>
         </div>
 
@@ -70,10 +83,10 @@ export function Header() {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                href={item.href}
                 className={cn(
                   "block py-2 text-base font-medium transition-colors",
-                  location.pathname === item.href
+                  pathname === item.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground",
                 )}
@@ -83,7 +96,10 @@ export function Header() {
               </Link>
             ))}
             <Button variant="enterprise" className="w-full mt-4" asChild>
-              <Link to="/consultation" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href="/consultation"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Schedule Consultation
               </Link>
             </Button>

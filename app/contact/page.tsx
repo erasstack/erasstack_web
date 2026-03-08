@@ -5,8 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const contactInfo = [
   {
@@ -88,7 +88,7 @@ const Contact = () => {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Whether you have a question, need information, or want to discuss
-              a potential project, we're here to help. Reach out and we'll
+              a potential project, we&apos;re here to help. Reach out and we&apos;ll
               respond promptly.
             </p>
           </div>
@@ -215,11 +215,11 @@ const Contact = () => {
                   Ready for a Deeper Conversation?
                 </h3>
                 <p className="text-sm text-primary-foreground/80 leading-relaxed mb-6">
-                  If you're ready to discuss a specific project or need a
+                  If you&apos;re ready to discuss a specific project or need a
                   detailed consultation, schedule a meeting with our team.
                 </p>
                 <Button variant="accent" asChild>
-                  <Link to="/consultation">
+                  <Link href="/consultation">
                     Schedule Consultation
                     <ArrowRight className="h-4 w-4" />
                   </Link>

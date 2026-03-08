@@ -9,7 +9,7 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const values = [
   {
@@ -76,7 +76,7 @@ const About = () => {
                 organizations to operate more effectively, make better
                 decisions, and achieve their strategic objectives. We accomplish
                 this through rigorous engineering practices, deep domain
-                understanding, and unwavering commitment to our clients'
+                understanding, and unwavering commitment to our clients&apos;
                 success.
               </p>
             </div>
@@ -205,15 +205,15 @@ const About = () => {
       <section className="section-padding bg-primary">
         <div className="container-enterprise text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Let's Build Something Meaningful Together
+            Let&apos;s Build Something Meaningful Together
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10">
-            We're selective about the projects we take on because we invest
-            deeply in every engagement. If you're looking for a technology
+            We&apos;re selective about the projects we take on because we invest
+            deeply in every engagement. If you&apos;re looking for a technology
             partner that shares your commitment to excellence, we should talk.
           </p>
           <Button variant="accent" size="xl" asChild>
-            <Link to="/consultation">
+            <Link href="/consultation">
               Schedule a Consultation
               <ArrowRight className="h-5 w-5" />
             </Link>

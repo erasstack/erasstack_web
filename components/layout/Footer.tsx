@@ -1,6 +1,9 @@
+"use client";
+
 import logo from "@/assets/logoh.png";
 import { ArrowUpRight, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import Image from "next/image";
+import Link from "next/link";
 
 const navigation = {
   company: [
@@ -25,8 +28,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="erasstack logo " className="w-44 invert" />
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src={logo}
+                alt="erasstack logo"
+                width={176}
+                height={44}
+                className="invert"
+              />
             </Link>
             <p className="text-sm text-primary-foreground/80 leading-relaxed mb-6">
               Enterprise grade software engineering and digital transformation
@@ -53,7 +62,7 @@ export function Footer() {
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors inline-flex items-center gap-1 group"
                   >
                     {item.name}
@@ -73,7 +82,7 @@ export function Footer() {
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors inline-flex items-center gap-1 group"
                   >
                     {item.name}
@@ -95,7 +104,7 @@ export function Footer() {
                 <div>
                   <p className="text-sm font-medium">Email</p>
                   <a
-                    href="mailto:contact@ErasStack.global"
+                    href="mailto:contact@erasstack.com"
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     contact@erasstack.com
@@ -135,13 +144,13 @@ export function Footer() {
             </p>
             <div className="flex gap-6">
               <Link
-                to="/privacy"
+                href="/privacy"
                 className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
-                to="/terms"
+                href="/terms"
                 className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
               >
                 Terms of Service

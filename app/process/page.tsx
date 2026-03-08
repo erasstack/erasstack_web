@@ -9,7 +9,7 @@ import {
   TestTube,
   Wrench,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const phases = [
   {
@@ -319,11 +319,11 @@ const Process = () => {
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10">
             Every successful project starts with a conversation. Schedule a
-            consultation to discuss your organization's needs and explore how we
-            can help.
+            consultation to discuss your organization&apos;s needs and explore
+            how we can help.
           </p>
           <Button variant="accent" size="xl" asChild>
-            <Link to="/consultation">
+            <Link href="/consultation">
               Schedule a Consultation
               <ArrowRight className="h-5 w-5" />
             </Link>

@@ -1,16 +1,27 @@
-import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, Clock, CheckCircle, Building2, Users, Shield } from "lucide-react";
-import { format, addDays, isWeekend, setHours, setMinutes } from "date-fns";
-import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useSendEmail } from "@/hooks/use-send-email";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { addDays, format, isWeekend } from "date-fns";
+import { CalendarIcon, CheckCircle, Clock } from "lucide-react";
+import { useState } from "react";
 
 const timeSlots = [
   "09:00 AM",
@@ -40,6 +51,7 @@ const projectTypes = [
 ];
 
 const Consultation = () => {
+  const sendEmail = useSendEmail();
   const [date, setDate] = useState<Date | undefined>();
   const [time, setTime] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -53,38 +65,58 @@ const Consultation = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!date || !time) {
       toast({
         title: "Please select a date and time",
-        description: "Both date and time are required to schedule your consultation.",
+        description:
+          "Both date and time are required to schedule your consultation.",
         variant: "destructive",
       });
       return;
     }
 
-    toast({
-      title: "Consultation Request Submitted",
-      description: `Thank you, ${formData.name}. We'll confirm your ${format(date, "MMMM d, yyyy")} at ${time} consultation shortly.`,
-    });
+    sendEmail.mutate(
+      { ...formData, date, time },
+      {
+        onSuccess: () => {
+          toast({
+            title: "Consultation Request Submitted",
+            description: `Thank you, ${formData.name}. We'll confirm your ${format(
+              date,
+              "MMMM d, yyyy",
+            )} at ${time} consultation shortly.`,
+          });
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      organization: "",
-      organizationType: "",
-      projectType: "",
-      message: "",
-    });
-    setDate(undefined);
-    setTime("");
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            organization: "",
+            organizationType: "",
+            projectType: "",
+            message: "",
+          });
+          setDate(undefined);
+          setTime("");
+        },
+        onError: () => {
+          toast({
+            title: "Submission Failed",
+            description:
+              "Something went wrong while sending your request. Please try again.",
+            variant: "destructive",
+          });
+        },
+      },
+    );
   };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -106,12 +138,12 @@ const Consultation = () => {
               Schedule a Consultation
             </p>
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              Let's Discuss Your Project
+              Let&apos;s Discuss Your Project
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Schedule a confidential consultation with our team. We'll listen to your 
-              requirements, answer your questions, and provide initial recommendations 
-              at no obligation.
+              Schedule a confidential consultation with our team. We&apos;ll
+              listen to your requirements, answer your questions, and provide
+              initial recommendations at no obligation.
             </p>
           </div>
         </div>
@@ -185,7 +217,9 @@ const Consultation = () => {
                   </h2>
                   <div className="grid sm:grid-cols-2 gap-6 mb-6">
                     <div className="space-y-2">
-                      <Label htmlFor="organizationType">Organization Type *</Label>
+                      <Label htmlFor="organizationType">
+                        Organization Type *
+                      </Label>
                       <Select
                         value={formData.organizationType}
                         onValueChange={(value) =>
@@ -252,11 +286,13 @@ const Consultation = () => {
                             variant="outline"
                             className={cn(
                               "w-full justify-start text-left font-normal",
-                              !date && "text-muted-foreground"
+                              !date && "text-muted-foreground",
                             )}
                           >
                             <CalendarIcon className="mr-2 h-4 w-4" />
-                            {date ? format(date, "MMMM d, yyyy") : "Select a date"}
+                            {date
+                              ? format(date, "MMMM d, yyyy")
+                              : "Select a date"}
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-auto p-0" align="start">
@@ -298,12 +334,17 @@ const Consultation = () => {
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mt-4">
-                    All times are in Eastern Standard Time (EST). We'll confirm your 
-                    consultation within one business day.
+                    All times are in Eastern Standard Time (EST). We&apos;ll
+                    confirm your consultation within one business day.
                   </p>
                 </div>
 
-                <Button variant="enterprise" size="xl" type="submit" className="w-full sm:w-auto">
+                <Button
+                  variant="enterprise"
+                  size="xl"
+                  type="submit"
+                  className="w-full sm:w-auto"
+                >
                   Submit Consultation Request
                 </Button>
               </form>
@@ -325,7 +366,9 @@ const Consultation = () => {
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-muted-foreground">{item}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -336,13 +379,13 @@ const Consultation = () => {
                   Confidentiality
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  All information shared during the consultation is treated as 
-                  confidential. We do not share client information with third 
+                  All information shared during the consultation is treated as
+                  confidential. We do not share client information with third
                   parties without explicit consent.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  If required, we're prepared to sign non-disclosure agreements 
-                  before discussing sensitive project details.
+                  If required, we&apos;re prepared to sign non-disclosure
+                  agreements before discussing sensitive project details.
                 </p>
               </div>
 
@@ -351,9 +394,10 @@ const Consultation = () => {
                   No Obligation
                 </h3>
                 <p className="text-sm text-primary-foreground/80 leading-relaxed">
-                  The initial consultation is complimentary. There's no pressure 
-                  and no obligation to proceed. Our goal is to understand your 
-                  needs and determine if we're a good fit for your project.
+                  The initial consultation is complimentary. There&apos;s no
+                  pressure and no obligation to proceed. Our goal is to
+                  understand your needs and determine if we&apos;re a good fit
+                  for your project.
                 </p>
               </div>
             </div>

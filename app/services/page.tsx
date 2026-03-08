@@ -9,7 +9,7 @@ import {
   RefreshCcw,
   Workflow,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const services = [
   {
@@ -214,7 +214,7 @@ const Services = () => {
                     Ready to discuss your requirements?
                   </p>
                   <Button variant="enterprise" asChild>
-                    <Link to="/consultation">
+                    <Link href="/consultation">
                       Schedule Consultation
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -233,13 +233,13 @@ const Services = () => {
             Not Sure Which Service You Need?
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10">
-            Every organization's needs are unique. Schedule a consultation to
-            discuss your specific challenges and we'll help identify the right
-            approach.
+            Every organization&apos;s needs are unique. Schedule a consultation
+            to discuss your specific challenges and we&apos;ll help identify the
+            right approach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="accent" size="xl" asChild>
-              <Link to="/consultation">
+              <Link href="/consultation">
                 Schedule a Consultation
                 <ArrowRight className="h-5 w-5" />
               </Link>
@@ -250,7 +250,7 @@ const Services = () => {
               asChild
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
             >
-              <Link to="/process">Learn Our Process</Link>
+              <Link href="/process">Learn Our Process</Link>
             </Button>
           </div>
         </div>

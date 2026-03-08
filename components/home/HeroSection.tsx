@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Zap, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Building2, Shield, Zap } from "lucide-react";
+import Link from "next/link";
 
 const trustIndicators = [
   { icon: Shield, label: "Enterprise Security" },
@@ -13,9 +13,12 @@ export function HeroSection() {
     <section className="relative bg-gradient-to-b from-cream to-background overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23172554' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23172554' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
       </div>
 
       <div className="container-enterprise relative">
@@ -35,20 +38,20 @@ export function HeroSection() {
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We design, build, and support enterprise-grade software systems for businesses, 
-              government agencies, and NGOs. Our solutions are secure, scalable, and built 
-              for long-term operational excellence.
+              We design, build, and support enterprise-grade software systems
+              for businesses, government agencies, and NGOs. Our solutions are
+              secure, scalable, and built for long-term operational excellence.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button variant="enterprise" size="xl" asChild>
-                <Link to="/consultation">
+                <Link href="/consultation">
                   Schedule a Consultation
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="enterprise-outline" size="xl" asChild>
-                <Link to="/services">Explore Our Services</Link>
+                <Link href="/services">Explore Our Services</Link>
               </Button>
             </div>
 
@@ -78,25 +81,37 @@ export function HeroSection() {
                     <Building2 className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-foreground">Enterprise Architecture</p>
-                    <p className="text-sm text-muted-foreground">Scalable & Secure by Design</p>
+                    <p className="font-heading font-semibold text-foreground">
+                      Enterprise Architecture
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Scalable & Secure by Design
+                    </p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="h-24 rounded-lg bg-secondary/50 border border-border" />
+                    <div
+                      key={i}
+                      className="h-24 rounded-lg bg-secondary/50 border border-border"
+                    />
                   ))}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   {[1, 2].map((i) => (
-                    <div key={i} className="h-16 rounded-lg bg-cream border border-border" />
+                    <div
+                      key={i}
+                      className="h-16 rounded-lg bg-cream border border-border"
+                    />
                   ))}
                 </div>
 
                 <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-primary to-navy-light">
-                  <span className="text-primary-foreground font-medium text-sm">System Integration Layer</span>
+                  <span className="text-primary-foreground font-medium text-sm">
+                    System Integration Layer
+                  </span>
                   <div className="flex gap-2">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="w-2 h-2 rounded-full bg-gold" />

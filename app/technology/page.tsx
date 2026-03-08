@@ -9,7 +9,7 @@ import {
   Scale,
   Shield,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const principles = [
   {
@@ -94,7 +94,7 @@ const Technology = () => {
               Principled Approach to Technology Decisions
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't believe in one-size-fits-all technology stacks. Instead,
+              We don&apos;t believe in one-size-fits-all technology stacks. Instead,
               we apply a set of guiding principles that inform every technical
               decision we make, ensuring solutions that truly serve
               organizational needs.
@@ -114,7 +114,7 @@ const Technology = () => {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   In our experience, technology failures rarely stem from
-                  choosing the "wrong" framework or database. They result from
+                  choosing the &quot;wrong&quot; framework or database. They result from
                   misalignment between technology decisions and organizational
                   realities—capacity, culture, constraints, and long-term
                   objectives.
@@ -128,7 +128,7 @@ const Technology = () => {
                   growth.
                 </p>
                 <p>
-                  We resist the industry's obsession with novelty. While we stay
+                  We resist the industry&apos;s obsession with novelty. While we stay
                   current with technological developments, we recommend new
                   technologies only when they offer clear, demonstrable
                   advantages over proven alternatives.
@@ -138,9 +138,9 @@ const Technology = () => {
 
             <div className="bg-primary rounded-2xl p-10 text-primary-foreground">
               <blockquote className="text-xl font-heading italic mb-6 leading-relaxed">
-                "The goal is not to build systems that use the latest
+                &quote;The goal is not to build systems that use the latest
                 technology. The goal is to build systems that solve problems
-                effectively and continue to do so for years to come."
+                effectively and continue to do so for years to come.&quot;
               </blockquote>
               <p className="text-primary-foreground/70 text-sm">
                 — ErasStack Engineering Principles
@@ -257,12 +257,12 @@ const Technology = () => {
             Discuss Your Technology Needs
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10">
-            Whether you're planning a new system, modernizing existing
-            infrastructure, or evaluating technology options, we're here to
+            Whether you&apos;re planning a new system, modernizing existing
+            infrastructure, or evaluating technology options, we&apos;re here to
             provide thoughtful guidance.
           </p>
           <Button variant="accent" size="xl" asChild>
-            <Link to="/consultation">
+            <Link href="/consultation">
               Schedule a Consultation
               <ArrowRight className="h-5 w-5" />
             </Link>
