@@ -94,7 +94,8 @@ export function Hero() {
           variants={item}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.button
+          <motion.a
+          href="/#feature"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className="px-6 py-3 rounded-md text-sm font-medium transition"
@@ -103,10 +104,11 @@ export function Hero() {
               color: "#fff",
             }}
           >
-            Explore Work
-          </motion.button>
+            Explore
+          </motion.a>
 
-          <motion.button
+          <motion.a
+          href="https://www.facebook.com/profile.php?id=61577486754312"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className="px-6 py-3 rounded-md text-sm font-medium transition border"
@@ -116,7 +118,7 @@ export function Hero() {
             }}
           >
             Learn More
-          </motion.button>
+          </motion.a>
         </motion.div>
       </motion.div>
     </section>

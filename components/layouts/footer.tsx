@@ -2,6 +2,8 @@
 
 import { theme } from "@/theme";
 import Link from "next/link";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaX } from "react-icons/fa6";
 
 export function Footer() {
   const t = theme;
@@ -94,6 +96,20 @@ export function Footer() {
 
             <ul className="space-y-2 text-zinc-400">
               <li>contact@erasstack.com</li>
+              <div className="flex item-center gap-x-3">
+                <Link href="https://www.facebook.com/profile.php?id=61577486754312">
+                  <FaFacebook />{" "}
+                </Link>
+                <Link href="https://www.instagram.com/erasstackofficial1?igsh=dHFqamIwNGVwOHFm">
+                  <FaInstagram />
+                </Link>
+                <Link href="https://x.com/EStack16009">
+                  <FaX />
+                </Link>
+                <Link href="https://www.tiktok.com/@erasstackofficial">
+                  <FaTiktok />
+                </Link>
+              </div>
               {/* <li>+234 000 000 0000</li> */}
             </ul>
           </div>
