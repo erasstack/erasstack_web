@@ -6,7 +6,7 @@ export const theme = {
     name: "ErasStack",
     email: "erastack@gmail.com",
     slogan: "Innovate. Build. Scale.",
-    site:"https://erasstack.com",
+    site: "https://erasstack.com",
     subtext:
       "We build AI-driven platforms and scalable software systems that power the next generation of digital products.",
     heroHeadline: "Engineering Intelligent Systems",
@@ -19,9 +19,9 @@ export const theme = {
   // =====================
   colors: {
     bg: {
-      primary: "#05060A",
-      secondary: "#0B0F1A",
-      elevated: "#111827",
+      primary: "#0d0d0d",
+      secondary: "#011640",
+      elevated: "#011640",
     },
 
     text: {
@@ -153,7 +153,7 @@ export const theme = {
   // =====================
   components: {
     card: {
-      bg: "#111827",
+      bg: "#0d0d0d",
       border: "1px solid rgba(255,255,255,0.06)",
       radius: 16,
       padding: 24,
@@ -166,7 +166,7 @@ export const theme = {
 
     button: {
       primary: {
-        bg: "#3B82F6",
+        bg: "#03318c",
         color: "#FFFFFF",
         paddingX: 20,
         paddingY: 12,

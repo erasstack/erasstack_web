@@ -77,7 +77,7 @@ export default function Page() {
           className="absolute inset-0"
           style={{
             background: `radial-gradient(circle at 30% 20%, ${t.colors.accent.glow}, transparent 40%),
-                         radial-gradient(circle at 70% 60%, ${t.colors.accent.secondary}20, transparent 50%)`,
+                         radial-gradient(circle at 70% 60%, ${t.colors.bg.secondary}20, transparent 50%)`,
           }}
         />
 
