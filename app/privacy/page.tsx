@@ -7,13 +7,13 @@ const t = theme;
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `Privacy Policy for ${t.brand.name} — how we collect, use, and protect your personal information.`,
+  description: `Privacy Policy for ${t.brand.name}. How we collect, use, and protect your personal information.`,
 };
 
 const navy = "#0C1E3E";
 const bodyText = "#1F2937";
 const mutedText = "#6B7280";
-const gold = "#C8943A";
+const gold = "#D97706";
 const borderColor = "rgba(12,30,62,0.1)";
 const lightBg = "#F5F7FA";
 
@@ -60,9 +60,9 @@ export default function PrivacyPage() {
           <Section title="2. Information We Collect">
             <P>We may collect the following categories of information:</P>
             <ul style={{ paddingLeft: 20, margin: "12px 0", display: "flex", flexDirection: "column", gap: 8 }}>
-              <Li><Strong>Contact information</Strong> — name, email address, and phone number provided through our contact form or direct correspondence.</Li>
-              <Li><Strong>Business information</Strong> — company name, project description, and other details you share when requesting our services.</Li>
-              <Li><Strong>Usage data</Strong> — anonymised information about how you interact with our website, collected via standard web analytics.</Li>
+              <Li><Strong>Contact information:</Strong> name, email address, and phone number provided through our contact form or direct correspondence.</Li>
+              <Li><Strong>Business information:</Strong> company name, project description, and other details you share when requesting our services.</Li>
+              <Li><Strong>Usage data:</Strong> anonymised information about how you interact with our website, collected via standard web analytics.</Li>
             </ul>
             <P>We do not collect sensitive personal data such as financial information, identification numbers, or biometric data through our website.</P>
           </Section>
@@ -82,9 +82,9 @@ export default function PrivacyPage() {
           <Section title="4. Information Sharing">
             <P>We may share your information only in the following limited circumstances:</P>
             <ul style={{ paddingLeft: 20, margin: "12px 0", display: "flex", flexDirection: "column", gap: 8 }}>
-              <Li><Strong>Service providers</Strong> — trusted third-party vendors who assist in operating our business, bound by confidentiality obligations.</Li>
-              <Li><Strong>Legal requirements</Strong> — when required to comply with applicable laws or valid legal processes in Nigeria.</Li>
-              <Li><Strong>Business transfers</Strong> — in the event of a merger, acquisition, or sale of company assets, with prior notice to affected parties.</Li>
+              <Li><Strong>Service providers:</Strong> trusted third-party vendors who assist in operating our business, bound by confidentiality obligations.</Li>
+              <Li><Strong>Legal requirements:</Strong> when required to comply with applicable laws or valid legal processes in Nigeria.</Li>
+              <Li><Strong>Business transfers:</Strong> in the event of a merger, acquisition, or sale of company assets, with prior notice to affected parties.</Li>
             </ul>
           </Section>
 

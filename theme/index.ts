@@ -6,7 +6,7 @@ export const theme = {
     slogan: "Innovate. Build. Transform.",
     site: "https://erasstack.com",
     subtext:
-      "ERASSTACK LTD engineers transformative digital solutions — from software platforms to next-generation products that improve lives, empower businesses, and redefine technology.",
+      "ERASSTACK LTD engineers transformative digital solutions, from software platforms to next-generation products that improve lives, empower businesses, and redefine technology.",
     heroHeadline: "Engineering Transformative Digital Solutions",
     heroSubtext:
       "ERASSTACK LTD is a technology company registered in Nigeria, building the next generation of digital products and services.",
@@ -33,9 +33,9 @@ export const theme = {
       inverse: "#FFFFFF",
     },
     accent: {
-      primary: "#C8943A",
-      secondary: "#E8A84A",
-      light: "#FEF3DC",
+      primary: "#D97706",
+      secondary: "#F59E0B",
+      light: "#FFFBEB",
     },
     border: {
       subtle: "rgba(12, 30, 62, 0.08)",
@@ -146,12 +146,12 @@ export const theme = {
       hover: {
         y: -3,
         shadow: "0 12px 32px rgba(12, 30, 62, 0.10)",
-        border: "rgba(200, 148, 58, 0.4)",
+        border: "rgba(217, 119, 6, 0.35)",
       },
     },
     button: {
       primary: {
-        bg: "#C8943A",
+        bg: "#D97706",
         color: "#FFFFFF",
         paddingX: 24,
         paddingY: 13,

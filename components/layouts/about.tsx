@@ -19,7 +19,7 @@ export function AboutSection() {
       style={{
         paddingTop: t.layout.sectionPaddingY,
         paddingBottom: t.layout.sectionPaddingY,
-        background: t.colors.bg.secondary,
+        background: `linear-gradient(135deg, #F5F7FA 0%, #EEF1F8 100%)`,
       }}
     >
       <div
@@ -57,7 +57,7 @@ export function AboutSection() {
             >
               ERASSTACK LTD is a technology company incorporated and registered in
               Nigeria under the Corporate Affairs Commission (CAC). Our mandate is to
-              engineer transformative solutions — from digital platforms to next-generation
+              engineer transformative solutions, from digital platforms to next-generation
               products that improve lives, empower businesses, and redefine technology.
             </p>
 
@@ -76,7 +76,7 @@ export function AboutSection() {
               style={{
                 background: t.colors.accent.light,
                 color: t.colors.accent.primary,
-                border: `1px solid rgba(200,148,58,0.2)`,
+                border: `1px solid rgba(217,119,6,0.2)`,
               }}
             >
               <svg

@@ -82,7 +82,7 @@ export function TrustSection() {
             className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
             style={{ color: t.colors.text.inverse, letterSpacing: "-0.02em" }}
           >
-            ERASSTACK LTD — a legitimate, registered company
+            ERASSTACK LTD: A Legitimate, Registered Company
           </h2>
           <p
             className="text-base leading-relaxed"
@@ -112,7 +112,7 @@ export function TrustSection() {
               <div
                 className="w-11 h-11 rounded-lg flex items-center justify-center mb-5"
                 style={{
-                  background: "rgba(200,148,58,0.15)",
+                  background: "rgba(217,119,6,0.15)",
                   color: t.colors.accent.primary,
                 }}
               >

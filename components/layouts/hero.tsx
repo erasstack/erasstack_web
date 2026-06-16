@@ -35,41 +35,15 @@ export function Hero() {
         paddingBottom: t.layout.sectionPaddingY,
       }}
     >
-      {/* Subtle grid background */}
+      {/* Soft ambient gradients */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(12,30,62,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(12,30,62,0.04) 1px, transparent 1px)
+          background: `
+            radial-gradient(ellipse 80% 60% at 60% 10%, rgba(217,119,6,0.07) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 50% at 10% 80%, rgba(12,30,62,0.06) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 40% at 90% 90%, rgba(217,119,6,0.04) 0%, transparent 50%)
           `,
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* Soft radial accent */}
-      <div
-        className="absolute z-0"
-        style={{
-          top: "10%",
-          right: "5%",
-          width: 500,
-          height: 500,
-          background:
-            "radial-gradient(circle, rgba(200,148,58,0.10) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        className="absolute z-0"
-        style={{
-          bottom: "5%",
-          left: "0%",
-          width: 400,
-          height: 400,
-          background:
-            "radial-gradient(circle, rgba(12,30,62,0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
         }}
       />
 
@@ -87,7 +61,7 @@ export function Hero() {
             style={{
               background: t.colors.accent.light,
               color: t.colors.accent.primary,
-              border: `1px solid rgba(200,148,58,0.25)`,
+              border: `1px solid rgba(217,119,6,0.25)`,
             }}
           >
             <span

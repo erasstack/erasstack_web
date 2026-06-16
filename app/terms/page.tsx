@@ -7,13 +7,13 @@ const t = theme;
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `Terms of Service for ${t.brand.name} — the terms and conditions governing use of our website and services.`,
+  description: `Terms of Service for ${t.brand.name}. The terms and conditions governing use of our website and services.`,
 };
 
 const navy = "#0C1E3E";
 const bodyText = "#1F2937";
 const mutedText = "#6B7280";
-const gold = "#C8943A";
+const gold = "#D97706";
 const borderColor = "rgba(12,30,62,0.1)";
 const lightBg = "#F5F7FA";
 
@@ -83,7 +83,7 @@ export default function TermsPage() {
 
           <Section title="4. Intellectual Property">
             <P>
-              All content on this website — including text, graphics, logos, and code — is the property
+              All content on this website, including text, graphics, logos, and code, is the property
               of ErasStack or its content suppliers and is protected by applicable intellectual property
               laws. You may not reproduce, distribute, or create derivative works from any content on
               this website without prior written permission from ErasStack.

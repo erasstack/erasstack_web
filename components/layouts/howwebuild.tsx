@@ -13,7 +13,7 @@ export function ProcessSection() {
       style={{
         paddingTop: t.layout.sectionPaddingY,
         paddingBottom: t.layout.sectionPaddingY,
-        background: t.colors.bg.secondary,
+        background: `linear-gradient(160deg, #F5F7FA 0%, #EAEef5 100%)`,
       }}
     >
       <div

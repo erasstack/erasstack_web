@@ -135,7 +135,7 @@ export function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm font-medium py-1 transition-colors hover:text-[#C8943A]"
+                    className="text-sm font-medium py-1 transition-colors hover:text-[#D97706]"
                     style={{ color: t.colors.text.secondary }}
                   >
                     {link.name}

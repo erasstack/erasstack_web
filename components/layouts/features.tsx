@@ -55,7 +55,7 @@ export function FeaturesSection() {
       style={{
         paddingTop: t.layout.sectionPaddingY,
         paddingBottom: t.layout.sectionPaddingY,
-        background: t.colors.bg.primary,
+        background: `radial-gradient(ellipse 70% 50% at 50% 0%, rgba(217,119,6,0.05) 0%, transparent 60%), #FFFFFF`,
       }}
     >
       <div

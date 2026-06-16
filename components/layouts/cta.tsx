@@ -11,15 +11,28 @@ export function CTASection() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    window.location.href = `mailto:${t.brand.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle = {
@@ -48,7 +61,7 @@ export function CTASection() {
       style={{
         paddingTop: t.layout.sectionPaddingY,
         paddingBottom: t.layout.sectionPaddingY,
-        background: t.colors.bg.secondary,
+        background: `linear-gradient(135deg, #F5F7FA 0%, #EEF1F8 60%, #FFFBEB 100%)`,
       }}
     >
       <div
@@ -168,7 +181,7 @@ export function CTASection() {
                   Message sent
                 </h3>
                 <p className="text-sm" style={{ color: t.colors.text.secondary }}>
-                  Your email client should have opened. We&apos;ll respond within one business day.
+                  Thank you! Your message has been sent. We&apos;ll respond within one business day.
                 </p>
               </div>
             ) : (
@@ -218,15 +231,23 @@ export function CTASection() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm" style={{ color: "#DC2626" }}>
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
+                  disabled={loading}
+                  className="w-full py-3.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
                   style={{
                     background: t.components.button.primary.bg,
                     color: t.components.button.primary.color,
+                    cursor: loading ? "not-allowed" : "pointer",
                   }}
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}
