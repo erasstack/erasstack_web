@@ -23,7 +23,7 @@ export function Card({ children }: CardProps) {
         .card:hover {
           transform: translateY(-4px);
           box-shadow: ${theme.shadow.lg};
-          border-color: ${theme.colors.accent.glow};
+          border-color: ${theme.colors.accent.primary};
         }
       `}</style>
     </div>

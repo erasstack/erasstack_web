@@ -1,44 +1,45 @@
 export const theme = {
-  // =====================
-  // BRAND (CONTENT LAYER)
-  // =====================
   brand: {
     name: "ErasStack",
-    email: "erastack@gmail.com",
-    slogan: "Innovate. Build. Scale.",
+    legalName: "ERASSTACK LTD",
+    email: "support@erasstack.com",
+    slogan: "Innovate. Build. Transform.",
     site: "https://erasstack.com",
     subtext:
-      "We build AI-driven platforms and scalable software systems that power the next generation of digital products.",
-    heroHeadline: "Engineering Intelligent Systems",
+      "ERASSTACK LTD engineers transformative digital solutions — from software platforms to next-generation products that improve lives, empower businesses, and redefine technology.",
+    heroHeadline: "Engineering Transformative Digital Solutions",
+    heroSubtext:
+      "ERASSTACK LTD is a technology company registered in Nigeria, building the next generation of digital products and services.",
     identity:
-      "A technology company building intelligent systems for the next era of software.",
+      "A CAC-registered technology company engineering transformative solutions across digital platforms, enterprise systems, and next-generation products.",
+    location: "Abuja, Nigeria",
+    phone: "+234 703 806 3828",
+    registration:
+      "Registered under the Corporate Affairs Commission (CAC) of Nigeria",
   },
 
-  // =====================
-  // DESIGN TOKENS
-  // =====================
   colors: {
     bg: {
-      primary: "#0d0d0d",
-      secondary: "#011640",
-      elevated: "#011640",
-    },
-
-    text: {
       primary: "#FFFFFF",
-      secondary: "#A1A1AA",
-      muted: "#71717A",
+      secondary: "#F5F7FA",
+      elevated: "#EAEef5",
+      navy: "#0C1E3E",
+      navyDark: "#071528",
     },
-
+    text: {
+      primary: "#0C1E3E",
+      secondary: "#4B5563",
+      muted: "#9CA3AF",
+      inverse: "#FFFFFF",
+    },
     accent: {
-      primary: "#3B82F6",
-      secondary: "#8B5CF6",
-      glow: "rgba(59, 130, 246, 0.25)",
+      primary: "#C8943A",
+      secondary: "#E8A84A",
+      light: "#FEF3DC",
     },
-
     border: {
-      subtle: "rgba(255, 255, 255, 0.06)",
-      strong: "rgba(255, 255, 255, 0.12)",
+      subtle: "rgba(12, 30, 62, 0.08)",
+      strong: "rgba(12, 30, 62, 0.15)",
     },
   },
 
@@ -55,17 +56,16 @@ export const theme = {
   },
 
   radius: {
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 24,
+    sm: 6,
+    md: 10,
+    lg: 14,
+    xl: 20,
   },
 
   typography: {
     fontFamily: {
       primary: "'Inter', sans-serif",
     },
-
     fontSize: {
       xs: 12,
       sm: 14,
@@ -75,9 +75,8 @@ export const theme = {
       "2xl": 24,
       "3xl": 32,
       "4xl": 40,
-      "5xl": 64,
+      "5xl": 56,
     },
-
     fontWeight: {
       light: 300,
       normal: 400,
@@ -85,52 +84,44 @@ export const theme = {
       semibold: 600,
       bold: 700,
     },
-
     lineHeight: {
       tight: 1.1,
       normal: 1.5,
-      relaxed: 1.6,
+      relaxed: 1.65,
     },
-
     letterSpacing: {
-      tight: "-0.03em",
+      tight: "-0.02em",
       normal: "0em",
-      wide: "0.02em",
+      wide: "0.04em",
+      wider: "0.08em",
     },
-
-    // 🔥 PRESET TEXT STYLES (VERY IMPORTANT)
     variants: {
       title: {
-        fontSize: 64,
+        fontSize: 56,
         fontWeight: 700,
         lineHeight: 1.1,
-        letterSpacing: "-0.03em",
+        letterSpacing: "-0.02em",
       },
-
       h1: {
         fontSize: 40,
-        fontWeight: 600,
+        fontWeight: 700,
         lineHeight: 1.2,
       },
-
       h2: {
         fontSize: 32,
         fontWeight: 600,
         lineHeight: 1.3,
       },
-
       h3: {
-        fontSize: 24,
-        fontWeight: 500,
+        fontSize: 22,
+        fontWeight: 600,
         lineHeight: 1.4,
       },
-
       body: {
         fontSize: 16,
         fontWeight: 400,
-        lineHeight: 1.6,
+        lineHeight: 1.65,
       },
-
       small: {
         fontSize: 14,
         fontWeight: 400,
@@ -138,9 +129,7 @@ export const theme = {
       },
     },
   },
-  // =====================
-  // LAYOUT SYSTEM
-  // =====================
+
   layout: {
     sectionPaddingY: 96,
     sectionPaddingX: 24,
@@ -148,83 +137,74 @@ export const theme = {
     gap: 64,
   },
 
-  // =====================
-  // COMPONENT TOKENS
-  // =====================
   components: {
     card: {
-      bg: "#0d0d0d",
-      border: "1px solid rgba(255,255,255,0.06)",
-      radius: 16,
-      padding: 24,
+      bg: "#FFFFFF",
+      border: "1px solid rgba(12, 30, 62, 0.08)",
+      radius: 12,
+      padding: 28,
       hover: {
-        y: -4,
-        shadow: "0 20px 40px rgba(0,0,0,0.4)",
-        border: "rgba(59, 130, 246, 0.3)",
+        y: -3,
+        shadow: "0 12px 32px rgba(12, 30, 62, 0.10)",
+        border: "rgba(200, 148, 58, 0.4)",
       },
     },
-
     button: {
       primary: {
-        bg: "#03318c",
+        bg: "#C8943A",
         color: "#FFFFFF",
-        paddingX: 20,
-        paddingY: 12,
-        radius: 12,
+        paddingX: 24,
+        paddingY: 13,
+        radius: 8,
       },
-
       secondary: {
         bg: "transparent",
-        border: "1px solid rgba(255,255,255,0.12)",
+        border: "1.5px solid rgba(12, 30, 62, 0.20)",
+        color: "#0C1E3E",
+        paddingX: 24,
+        paddingY: 13,
+        radius: 8,
+      },
+      navy: {
+        bg: "#0C1E3E",
         color: "#FFFFFF",
-        paddingX: 20,
-        paddingY: 12,
-        radius: 12,
+        paddingX: 24,
+        paddingY: 13,
+        radius: 8,
       },
     },
   },
 
-  // =====================
-  // MOTION SYSTEM
-  // =====================
   motion: {
     duration: {
       fast: 0.2,
       normal: 0.5,
       slow: 0.8,
-      ambient: 10,
     },
-
     easing: {
       smooth: "easeOut",
       inOut: "easeInOut",
       standard: [0.4, 0, 0.2, 1] as [number, number, number, number],
     },
-
     variants: {
       fadeUp: {
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 30 },
         show: { opacity: 1, y: 0 },
       },
-
       fade: {
         hidden: { opacity: 0 },
         show: { opacity: 1 },
       },
-
       scaleUp: {
-        hidden: { opacity: 0, scale: 0.95 },
+        hidden: { opacity: 0, scale: 0.96 },
         show: { opacity: 1, scale: 1 },
       },
     },
   },
 
-  // =====================
-  // SHADOWS
-  // =====================
   shadow: {
-    sm: "0 4px 10px rgba(0,0,0,0.2)",
-    md: "0 10px 25px rgba(0,0,0,0.3)",
-    lg: "0 20px 50px rgba(0,0,0,0.4)",
+    sm: "0 2px 8px rgba(12, 30, 62, 0.06)",
+    md: "0 8px 24px rgba(12, 30, 62, 0.10)",
+    lg: "0 20px 50px rgba(12, 30, 62, 0.14)",
   },
 };

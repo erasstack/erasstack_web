@@ -2,48 +2,75 @@
 
 import { theme } from "@/theme";
 import { motion, type Variants } from "framer-motion";
+import Link from "next/link";
+
+const t = theme;
 
 const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: theme.motion.duration.normal,
-      ease: theme.motion.easing.standard,
-    },
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
   },
 };
-const t = theme;
+
 export function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center px-4 text-center overflow-hidden"
       id="hero"
+      className="relative flex items-center justify-center overflow-hidden"
       style={{
-        paddingTop: t.layout.sectionPaddingY,
+        minHeight: "100vh",
+        background: t.colors.bg.primary,
+        paddingTop: 120,
         paddingBottom: t.layout.sectionPaddingY,
-
-        background: theme.colors.bg.primary,
-        borderBottomWidth: 10,
-        borderColor: theme.colors.bg.primary,
       }}
     >
-      {/* Background Glow */}
+      {/* Subtle grid background */}
       <div
-        className="absolute w-125 h-125 blur-[120px] top-[20%] left-1/2 -translate-x-1/2 z-0"
-        style={{ background: theme.colors.accent.glow }}
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(12,30,62,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(12,30,62,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      {/* Soft radial accent */}
+      <div
+        className="absolute z-0"
+        style={{
+          top: "10%",
+          right: "5%",
+          width: 500,
+          height: 500,
+          background:
+            "radial-gradient(circle, rgba(200,148,58,0.10) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        className="absolute z-0"
+        style={{
+          bottom: "5%",
+          left: "0%",
+          width: 400,
+          height: 400,
+          background:
+            "radial-gradient(circle, rgba(12,30,62,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
       />
 
       {/* Content */}
@@ -51,76 +78,94 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 max-w-3xl"
+        className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center"
       >
-        {/* Brand */}
-        <motion.h1
-          variants={item}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 uppercase"
-          style={{ color: theme.colors.text.primary }}
-        >
-          {theme.brand.name}
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          variants={item}
-          className="text-base sm:text-lg md:text-xl mb-4 tracking-wide"
-          style={{ color: theme.colors.text.secondary }}
-        >
-          {theme.brand.slogan}
-        </motion.p>
+        {/* Badge */}
+        <motion.div variants={item} className="flex justify-center mb-6">
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide uppercase"
+            style={{
+              background: t.colors.accent.light,
+              color: t.colors.accent.primary,
+              border: `1px solid rgba(200,148,58,0.25)`,
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: t.colors.accent.primary }}
+            />
+            CAC-Registered · Abuja, Nigeria
+          </span>
+        </motion.div>
 
         {/* Headline */}
-        <motion.h2
+        <motion.h1
           variants={item}
-          className="text-xl sm:text-2xl md:text-3xl font-medium mb-6 leading-relaxed"
-          style={{ color: theme.colors.text.primary }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5"
+          style={{
+            color: t.colors.text.primary,
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+          }}
         >
-          {theme.brand.heroHeadline}
-        </motion.h2>
+          {t.brand.heroHeadline}
+        </motion.h1>
 
-        {/* Subtext */}
+        {/* Subheadline */}
         <motion.p
           variants={item}
-          className="text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-10"
-          style={{ color: theme.colors.text.secondary }}
+          className="text-base sm:text-lg md:text-xl mb-4 font-medium"
+          style={{ color: t.colors.accent.primary }}
         >
-          {theme.brand.subtext}
+          {t.brand.heroSubtext}
         </motion.p>
 
-        {/* CTA */}
+        {/* Body */}
+        <motion.p
+          variants={item}
+          className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-10"
+          style={{ color: t.colors.text.secondary }}
+        >
+          {t.brand.subtext}
+        </motion.p>
+
+        {/* CTAs */}
         <motion.div
           variants={item}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.a
-            href="/#feature"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-6 py-3 rounded-md text-sm font-medium transition"
+          <Link
+            href="/#contact"
+            className="px-7 py-3.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
             style={{
-              background: theme.components.button.primary.bg,
-              color: "#fff",
+              background: t.components.button.primary.bg,
+              color: t.components.button.primary.color,
             }}
           >
-            Explore
-          </motion.a>
+            Contact Us
+          </Link>
 
-          <motion.a
-            href="https://www.facebook.com/profile.php?id=61577486754312"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-6 py-3 rounded-md text-sm font-medium transition border"
+          <Link
+            href="/#services"
+            className="px-7 py-3.5 rounded-lg text-sm font-medium transition-colors hover:border-[#0C1E3E]"
             style={{
-              border: theme.colors.border.subtle,
-              color: theme.colors.text.primary,
+              border: `1.5px solid ${t.colors.border.strong}`,
+              color: t.colors.text.primary,
             }}
           >
-            Learn More
-          </motion.a>
+            Our Services
+          </Link>
         </motion.div>
       </motion.div>
+
+      {/* Bottom fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 z-0 h-24 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, rgba(255,255,255,0.8))",
+        }}
+      />
     </section>
   );
 }

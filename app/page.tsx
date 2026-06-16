@@ -1,56 +1,62 @@
+import { AboutSection } from "@/components/layouts/about";
 import { CTASection } from "@/components/layouts/cta";
 import { FeaturesSection } from "@/components/layouts/features";
 import { Footer } from "@/components/layouts/footer";
 import { Hero } from "@/components/layouts/hero";
 import { ProcessSection } from "@/components/layouts/howwebuild";
 import { Navbar } from "@/components/layouts/navbar";
+import { TrustSection } from "@/components/layouts/trust";
 import { theme } from "@/theme";
 import type { Metadata } from "next";
 
+const t = theme;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(theme.brand.site),
+  metadataBase: new URL(t.brand.site),
 
   title: {
-    default: theme.brand.name,
-    template: `%s | ${theme.brand.name}`,
+    default: t.brand.name,
+    template: `%s | ${t.brand.name}`,
   },
 
-  description: theme.brand.subtext,
+  description: t.brand.subtext,
 
   keywords: [
-    "AI systems",
-    "software development",
-    "scalable platforms",
-    "automation",
-    "web development",
+    "software development Nigeria",
+    "backend systems",
+    "mobile applications",
+    "API infrastructure",
+    "enterprise software",
+    "CAC registered software company",
     "ErasStack",
+    "Abuja technology company",
   ],
 
-  authors: [{ name: "ErasStack Team" }],
-
+  authors: [{ name: "ErasStack" }],
   creator: "ErasStack",
 
   openGraph: {
-    title: theme.brand.name,
-    description: theme.brand.subtext,
-    url: theme.brand.site,
-    siteName: theme.brand.name,
+    title: t.brand.name,
+    description: t.brand.subtext,
+    url: t.brand.site,
+    siteName: t.brand.name,
     images: [
       {
-        url: "/og-image.png", // put in /public
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: theme.brand.name,
+        alt: `${t.brand.name} — ${t.brand.heroHeadline}`,
       },
     ],
     type: "website",
+    locale: "en_NG",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: theme.brand.name,
-    description: theme.brand.subtext,
-    images: ["/logo.png"],
+    title: t.brand.name,
+    description: t.brand.subtext,
+    images: ["/og-image.png"],
   },
 
   robots: {
@@ -58,44 +64,18 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+
 export default function Page() {
-  const t = theme;
-
   return (
-    <main
-      className="relative overflow-hidden"
-      style={{
-        background: t.colors.bg.primary,
-        color: t.colors.text.primary,
-        fontFamily: t.typography.fontFamily.primary,
-      }}
-    >
-      {/* GLOBAL BACKGROUND SYSTEM (smooth + blended) */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        {/* Base gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(circle at 30% 20%, ${t.colors.accent.glow}, transparent 40%),
-                         radial-gradient(circle at 70% 60%, ${t.colors.bg.secondary}20, transparent 50%)`,
-          }}
-        />
-
-        {/* Soft noise / depth layer */}
-        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[20px_20px]" />
-      </div>
-
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <div className="sm:px-10 px-3 ">
-          <FeaturesSection />
-
-          <ProcessSection />
-        </div>
-        <CTASection />
-        <Footer />
-      </div>
+    <main style={{ fontFamily: t.typography.fontFamily.primary }}>
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <FeaturesSection />
+      <ProcessSection />
+      <TrustSection />
+      <CTASection />
+      <Footer />
     </main>
   );
 }
