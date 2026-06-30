@@ -12,7 +12,7 @@ export const theme = {
       "ERASSTACK LTD is a technology company registered in Nigeria, building the next generation of digital products and services.",
     identity:
       "A CAC-registered technology company engineering transformative solutions across digital platforms, enterprise systems, and next-generation products.",
-    location: "Abuja, Nigeria",
+    location: "Flat 3, BLOCK 2/53, Area B, Nyanya, Abuja, Amac, FCT.",
     phone: "+234 703 806 3828",
     registration:
       "Registered under the Corporate Affairs Commission (CAC) of Nigeria",
